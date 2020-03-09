@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
-import Questionaire from "./component/Questionaire";
+import Home from "./component/Home";
 function App() {
   return (
     <div>
-      <Questionaire/>
+      <Home/>
     {/*     <footer>
         <a href="https://spoonacular.com/food-api">
           This project uses Spoonacular API

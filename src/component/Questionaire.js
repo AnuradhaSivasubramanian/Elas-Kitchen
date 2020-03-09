@@ -27,15 +27,13 @@ class Questionaire extends Component {
     this.setState({
       mountQuestion: !this.state.mountQuestion
     });
- 
   };
-   nextQuestion = () => {
+  nextQuestion = () => {
     this.setState({
       mountQuestion: !this.state.mountQuestion,
       counter: this.state.counter + 1
 
     });
-   
   };
   handlerdata = () => {
     let ingredients = this.state.ingredients.join(`,+`);
@@ -54,18 +52,15 @@ class Questionaire extends Component {
   };
 
   handlervalue = e => {
-    const item = e.target.id
-    if(this.state.ingredients.includes(item)){
-      this.setState({ ingredients:
-        this.state.ingredients.filter(i=> i !== item)
-               })
-       
+    const item = e.target.value;
+    if (this.state.ingredients.includes(item)) {
+      this.setState({
+        ingredients: this.state.ingredients.filter(i => i !== item)
+      });
+    } else {
+      this.setState({ ingredients: [...this.state.ingredients, item] });
     }
-    else{
-      
-        this.setState({ ingredients: [...this.state.ingredients, item] });
-    }
-  }
+  };
 
   render() {
     return (
