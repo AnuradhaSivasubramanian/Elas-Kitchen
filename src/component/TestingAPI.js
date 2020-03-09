@@ -1,50 +1,36 @@
 import React, { Component } from "react";
 import axios from "axios"
+import config from "../config";
+
+const MY_KEY = config.SPOON_API_KEY;
+
+
 class TestingAPI extends Component {
 state={
-    value:"",
-    ingredients:[]
+    
+    recipes:{},
+       ingredients:[]
     }
 
 
   handlerdata = () => {
 
-    axios({
-        "method":"GET",
-        "url":"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients",
-        
-        "headers":{
-        "content-type":"application/octet-stream",
-        "x-rapidapi-host":"spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key":"d1f85bb898314f33b11145b84949f942"},
-
-        "params":{
-        "number":"5",
-        "ranking":"1",
-        "ignorePantry":"false",
-        "ingredients":`apples%2Cflour%2Csugar`
-        }
-        })
-        .then((response)=>{
-          console.log(response)
-        })
-        .catch((error)=>{
-          console.log(error)
-        })
+    axios.get(
+      `https://api.spoonacular.com/recipes/random?apiKey=${MY_KEY}&number=1&findByIngredients?ingredients=+${this.state.ingredients[1]}&number=1,+${this.state.ingredients[2]}&number=1+${this.state.ingredients[2]}&number=1`
+    )
+      .then(res=>{this.setState({recipes:res.data.recipes[0]})})
+      .catch(error => console.error(`Something went wrong ${error}`));
   };
+  
  
 
  handlervalue=(e)=>{
-  this.setState({value:e.target.value})
- this.onAddItem()
+  this.setState({ingredients:[...this.state.ingredients,e.target.value]})
  }
- onAddItem = (e,state) => {
-    
-    this.setState({ingredients:this.state.ingredients.concat(this.state.value)});
-};
 
 
   render() {
+
     return (
       <div>
 
@@ -52,14 +38,16 @@ state={
           <p>{this.state.ingredients[2]}</p>
           <p>{this.state.ingredients[3]}</p>
           <p>{this.state.ingredients[4]}</p>
-        <button value="apple" onClick={this.handlervalue}> CLICK</button>
-        <button value="tomate" onClick={this.handlervalue}>CLICK</button>
+          <img src={this.state.recipes.image} alt=""/>
+        <button value="flour" onClick={this.handlervalue}> CLICK</button>
+        <button value="sugar" onClick={this.handlervalue}>CLICK</button>
         <button value="banana" onClick={this.handlervalue}>CLICK</button>
          <button onClick={this.handlervalue}> result</button>
         <button onClick={this.handlerdata}> dataCLICK</button>
       </div>
     );
-  }}
+  }
+}
 
 
 export default TestingAPI;
