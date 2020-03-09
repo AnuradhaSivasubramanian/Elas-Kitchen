@@ -1,6 +1,6 @@
 import React from "react";
 
-const Question = ({ question, handlervalue, questionUnmount, index }) => {
+const Question = ({ question, handlervalue, questionUnmount }) => {
   return (
     <div>
       <p>{question.question}</p>

@@ -57,23 +57,26 @@ class TestingAPI extends Component {
   };
 
   handlervalue = e => {
-    this.setState({ ingredients: [...this.state.ingredients, e.target.value] });
+    this.state.ingredients.includes(e.target.value)
+      ? this.setState({
+          ingredients: this.state.ingredients.filter(
+            item => item !== e.target.value
+          )
+        })
+      : this.setState({
+          ingredients: [...this.state.ingredients, e.target.value]
+        });
   };
 
   render() {
     return (
       <div>
-        <p>{this.state.ingredients[0]}</p>
-        <p>{this.state.ingredients[1]}</p>
-        <p>{this.state.ingredients[2]}</p>
-
         {!this.state.mountQuestion
           ? buzzFeedQuestions.map((item, index) => (
               <section key={index}>
                 {index === this.state.counter ? (
                   <Question
                     question={item}
-                    index={index}
                     handlervalue={this.handlervalue}
                     questionUnmount={this.toggleMountQuestion}
                   />
