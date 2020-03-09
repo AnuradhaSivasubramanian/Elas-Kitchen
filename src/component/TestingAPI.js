@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import config from "../config";
 import Recipe from "./Recipe";
+import Question from "./Question";
 
 const MY_KEY = config.SPOON_API_KEY;
 const buzzFeedQuestions = [
@@ -25,9 +26,21 @@ const buzzFeedQuestions = [
 class TestingAPI extends Component {
   state = {
     recipes: {},
-    ingredients: []
+    ingredients: [],
+    mountQuestion: false,
+    counter: 0
   };
-
+  toggleMountQuestion = () => {
+    this.setState({
+      mountQuestion: !this.state.mountQuestion,
+      counter: this.state.counter + 1
+    });
+  };
+  nextQuestion = () => {
+    this.setState({
+      mountQuestion: !this.state.mountQuestion
+    });
+  };
   handlerdata = () => {
     let ingredients = this.state.ingredients.join(`,+`);
     axios
@@ -38,6 +51,9 @@ class TestingAPI extends Component {
         this.setState({ recipes: res.data.recipes[0] });
       })
       .catch(error => console.error(`Something went wrong ${error}`));
+    this.setState({
+      counter: 0
+    });
   };
 
   handlervalue = e => {
@@ -51,19 +67,20 @@ class TestingAPI extends Component {
         <p>{this.state.ingredients[1]}</p>
         <p>{this.state.ingredients[2]}</p>
 
-        {buzzFeedQuestions.map((item, index) => (
-          <section key={index}>
-            {" "}
-            <p>{item.question}</p>
-            <button value={item.item1} onClick={this.handlervalue}>
-              {" "}
-              {item.item1}
-            </button>
-            <button value={item.item2} onClick={this.handlervalue}>
-              {item.item2}
-            </button>
-          </section>
-        ))}
+        {!this.state.mountQuestion
+          ? buzzFeedQuestions.map((item, index) => (
+              <section key={index}>
+                {index === this.state.counter ? (
+                  <Question
+                    question={item}
+                    index={index}
+                    handlervalue={this.handlervalue}
+                    questionUnmount={this.toggleMountQuestion}
+                  />
+                ) : null}
+              </section>
+            ))
+          : null}
 
         {/* <p>{buzzFeedQuestions[1].question}</p>
 
@@ -84,7 +101,7 @@ class TestingAPI extends Component {
         <button value={buzzFeedQuestions[2].item2} onClick={this.handlervalue}>
           {buzzFeedQuestions[2].item2}
         </button> */}
-
+        <button onClick={this.nextQuestion}>Next Question</button>
         <button onClick={this.handlerdata}> Give me the Recipe</button>
         <Recipe recipe={this.state.recipes} />
       </div>
