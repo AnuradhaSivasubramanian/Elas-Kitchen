@@ -52,7 +52,7 @@ class Questionaire extends Component {
   };
 
   handlervalue = e => {
-    const item = e.target.value;
+    const item = e.target.id;
     if (this.state.ingredients.includes(item)) {
       this.setState({
         ingredients: this.state.ingredients.filter(i => i !== item)
@@ -64,6 +64,10 @@ class Questionaire extends Component {
 
   render() {
     return (
+      <div>
+        
+        {this.state.recipeMount?
+        <Recipe recipes={this.state.recipes} />:
       <main className="game-main">
         
         {this.state.mountQuestion?
@@ -94,12 +98,8 @@ class Questionaire extends Component {
 
           </div>
 
-          
-
-          {this.state.recipeMount?
-        <Recipe recipe={this.state.recipes} />:null}
-
-      </main>
+      </main>}
+      </div>
     );
   }
 }

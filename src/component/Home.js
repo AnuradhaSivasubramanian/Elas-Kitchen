@@ -13,6 +13,8 @@ class Home extends Component {
   };
   render() {
     return (
+      <div> 
+      {!this.state.questionaireunMount ?<Questionaire />:
       <section className="home_section">
         <h1 className="home_h1"> Ela's Kitchen</h1>
         <p className="home_p">
@@ -22,9 +24,9 @@ class Home extends Component {
         <button className="home_button" onClick={this.questionaireMount}>
           Start Here
         </button>
-        <div> {this.state.questionaireunMount ? null : <Questionaire />}</div>
-      </section>
-    );
+        
+      </section>}
+      </div>);
   }
 }
 

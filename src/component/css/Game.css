@@ -8,6 +8,8 @@ body {
   height: 100vh;
   display:flex;
   align-content: center;
+  position: absolute;
+  bottom:0%;
 }
 .cursor-pointer{
     cursor: pointer;
