@@ -1,0 +1,15 @@
+body {
+  font-family: "Roboto Mono", monospace;
+}
+.game-main {
+  background: url("../images/gameBackground.jpg") center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  align-content: center;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+

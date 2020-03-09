@@ -1,15 +1,15 @@
 import React from "react";
 import "./App.css";
-import TestingAPI from "./component/TestingAPI";
+import Questionaire from "./component/Questionaire";
 function App() {
   return (
     <div>
-      <TestingAPI />
-      <footer>
+      <Questionaire/>
+    {/*     <footer>
         <a href="https://spoonacular.com/food-api">
           This project uses Spoonacular API
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }

@@ -1,14 +1,18 @@
-import React from 'react'
+import React from "react";
 
+function Buttons({ nextQuestion, handlerdata, counter }) {
+  return (
+    <div  className="buttons_class">
+     
 
-function Buttons ({nextQuestion,handlerdata,counter} ){
-    return(
-        <div>
-        {counter===0||counter===1||counter===2?
-        (<button onClick={nextQuestion}>Next Question</button>):
-        (<button onClick={handlerdata}> Give me the Recipe</button>)}
-        </div>
-    )
+      {counter === 2? (
+        <button className="cursor-pointer" onClick={handlerdata}> Give me the Recipe</button>
+        
+      ) : (
+        <button onClick={nextQuestion}>next question</button>
+      )}
+    </div>
+  );
 }
 
-export default Buttons
+export default Buttons;

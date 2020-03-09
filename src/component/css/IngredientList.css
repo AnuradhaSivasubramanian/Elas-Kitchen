@@ -1,0 +1,18 @@
+.list-ingredient{
+    width:35%;
+    margin-top:2%;
+}
+
+.listing-elements ul
+{font-size:1em;
+  font-family: 'Caveat', cursive;
+  text-justify: newspaper;
+
+   
+}
+
+@media screen and (min-width:1000px){
+    .listing-elements{
+        font-size:2.5em;
+     }
+}
