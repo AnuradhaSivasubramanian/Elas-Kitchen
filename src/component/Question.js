@@ -1,6 +1,6 @@
 import React from "react";
 
-const Question = ({ question, handlervalue, questionUnmount, index }) => {
+const Question = ({ question, handlervalue, AddingList, index }) => {
   return (
     <div>
       <p>{question.question}</p>
@@ -12,7 +12,7 @@ const Question = ({ question, handlervalue, questionUnmount, index }) => {
       <button value={question.item2} onClick={handlervalue}>
         {question.item2}
       </button>
-      <button onClick={questionUnmount}>Close</button>
+      <button onClick={AddingList}>Add</button>
     </div>
   );
 };

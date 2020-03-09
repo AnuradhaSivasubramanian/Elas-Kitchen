@@ -3,25 +3,11 @@ import axios from "axios";
 import config from "../config";
 import Recipe from "./Recipe";
 import Question from "./Question";
+import buzzQuestions from "./buzzQuestions"
+import Buttons from "./Buttons"
 
 const MY_KEY = config.SPOON_API_KEY;
-const buzzFeedQuestions = [
-  {
-    question: "Which of these Vegetables do you have",
-    item1: "tomato",
-    item2: "potato"
-  },
-  {
-    question: "Which of these items do you have",
-    item1: "black pepper",
-    item2: "jaggery"
-  },
-  {
-    question: "Which of these items do you have",
-    item1: "jasmine rice",
-    item2: "chicken"
-  }
-];
+
 
 class TestingAPI extends Component {
   state = {
@@ -30,16 +16,18 @@ class TestingAPI extends Component {
     mountQuestion: false,
     counter: 0
   };
-  toggleMountQuestion = () => {
+  AddingList = () => {
     this.setState({
       mountQuestion: !this.state.mountQuestion,
       counter: this.state.counter + 1
     });
+ 
   };
-  nextQuestion = () => {
+   nextQuestion = () => {
     this.setState({
       mountQuestion: !this.state.mountQuestion
     });
+   
   };
   handlerdata = () => {
     let ingredients = this.state.ingredients.join(`,+`);
@@ -57,8 +45,18 @@ class TestingAPI extends Component {
   };
 
   handlervalue = e => {
-    this.setState({ ingredients: [...this.state.ingredients, e.target.value] });
-  };
+    const item = e.target.value
+    if(this.state.ingredients.includes(item)){
+      this.setState({ ingredients:
+        this.state.ingredients.filter(i=> i !== item)
+
+        })
+    }
+    else{
+      
+        this.setState({ ingredients: [...this.state.ingredients, item] });
+    }
+  }
 
   render() {
     return (
@@ -68,41 +66,20 @@ class TestingAPI extends Component {
         <p>{this.state.ingredients[2]}</p>
 
         {!this.state.mountQuestion
-          ? buzzFeedQuestions.map((item, index) => (
+          ? buzzQuestions.map((item, index) => (
               <section key={index}>
                 {index === this.state.counter ? (
                   <Question
                     question={item}
-                    index={index}
                     handlervalue={this.handlervalue}
-                    questionUnmount={this.toggleMountQuestion}
+                    AddingList={this.AddingList}
                   />
                 ) : null}
               </section>
             ))
           : null}
-
-        {/* <p>{buzzFeedQuestions[1].question}</p>
-
-        <button value={buzzFeedQuestions[1].item1} onClick={this.handlervalue}>
-          {" "}
-          {buzzFeedQuestions[1].item1}
-        </button>
-        <button value={buzzFeedQuestions[1].item2} onClick={this.handlervalue}>
-          {buzzFeedQuestions[1].item2}
-        </button>
-
-        <p>{buzzFeedQuestions[2].question}</p>
-
-        <button value={buzzFeedQuestions[2].item1} onClick={this.handlervalue}>
-          {" "}
-          {buzzFeedQuestions[2].item1}
-        </button>
-        <button value={buzzFeedQuestions[2].item2} onClick={this.handlervalue}>
-          {buzzFeedQuestions[2].item2}
-        </button> */}
-        <button onClick={this.nextQuestion}>Next Question</button>
-        <button onClick={this.handlerdata}> Give me the Recipe</button>
+       
+         <Buttons nextQuestion={this.nextQuestion} handlerdata={this.handlerdata} counter={this.state.counter}/>
         <Recipe recipe={this.state.recipes} />
       </div>
     );
