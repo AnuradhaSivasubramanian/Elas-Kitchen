@@ -80,7 +80,7 @@ class Questionaire extends Component {
       counter={this.state.counter}/>:
       null}
       
-      <div>
+      <div className="height_100">
          {!this.state.mountQuestion
           ? buzzQuestions.map((item, index) => (
               <section  className="justify-center" key={index}>
