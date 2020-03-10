@@ -12,11 +12,13 @@ const MY_KEY = config.SPOON_API_KEY;
 
 class Questionaire extends Component {
   state = {
-    recipes: {},
+    id: "",
+    recipes:{},
     recipeMount: false,
     ingredients: [],
     mountQuestion: false,
-    counter: 0
+    counter: 0,
+    recipeImage:""
    };
 
 
@@ -37,20 +39,31 @@ class Questionaire extends Component {
     });
   };
   handlerdata = () => {
-    let ingredients = this.state.ingredients.join(`,+`);
+    let ingredients = this.state.ingredients.join(`,`);
     axios
       .get(
-        `https://api.spoonacular.com/recipes/random?apiKey=${MY_KEY}&number=1&findByIngredients?ingredients=+${ingredients}`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${MY_KEY}&includeIngredients=${ingredients}number=1`
       )
       .then(res => {
-        this.setState({ recipes: res.data.recipes[0] });
+        this.setState({ id: res.data.results[0].id});
         this.setState({ recipeMount: !this.state.recipeMount });
-      })
+        this.setState({recipeImage:res.data.results[0].image})
+        this.getAnalizedInst(this.state.id)}
+ )
       .catch(error => console.error(`Something went wrong ${error}`));
     this.setState({
       counter: 0
     });
+
   };
+
+  getAnalizedInst=(id)=>{
+    axios.get(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${MY_KEY}`)
+    .then(res=>{this.setState({recipes:res.data})})
+    .catch(error => console.error(`Something went wrong ${error}`));
+  
+  }
+    
 
   handlervalue = (e,onItem) => {
     const on= onItem
@@ -71,7 +84,7 @@ render() {
     <div>
       
         {this.state.recipeMount?
-        <Recipe recipes={this.state.recipes} />:
+        <Recipe recipes={this.state.recipes} recipeImage={this.state.recipeImage}  />:
       <main className="game-main">
         
         {this.state.mountQuestion?
@@ -91,7 +104,8 @@ render() {
                      AddingList={this.AddingList}
                      mountQuestion={this.state.mountQuestion}
                      handlervalue={this.handlervalue}
-                     ingredients={this.state.ingredients}                             
+                     ingredients={this.state.ingredients}
+                                                 
 
                   /> : null}
               </section>)

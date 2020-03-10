@@ -1,52 +1,101 @@
+import potato from "./images/potato.jpg"
+import pasta from "./images/pasta.jpeg"
+import rice from "./images/rice.jpeg"
+import flour from "./images/flour.jpg"
 import placeholder from "./images/placeholder.jpg"
-
+import paprika from "./images/paprika.jpg"
+import peas from "./images/peas.jpg"
+import abobora from "./images/abobora.jpg"
+import cheese from "./images/cheese.jpg"
+import milk from "./images/milk.jpeg"
+import eggs from "./images/eggs.jpeg"
+import butter from "./images/butter.jpeg"
+import chili from "./images/chili.jpeg"
+import garlic from "./images/garlic.jpeg"
+import onions from "./images/onions.jpeg"
+import ginger from "./images/ginger.jpeg"
+import pork from "./images/pork.jpeg"
+import beef from "./images/beef.jpeg"
+import chicken from "./images/chicken.jpeg"
+import salmon from "./images/fish.jpeg"
 const buzzQuestions = [
     {
-      question: "I am a super big jumper Question 1",
+      question: "Which carbs do you have?",
       item1:{
-        value: "tomato",
-        image:placeholder,},
+        value: "potatoes",
+        image:potato},
       item2: {
-        value:"amaretto",
-        image:placeholder},
+        value:"spaghetti",
+        image:pasta},
         item3: {
-          value:"andouille sausage",
-          image:placeholder},
-          item4: {
-            value:"beef stock",
-            image:placeholder}
-      
-    },
-    {
-      question: "I am a super big jumper Question 2",
-      item1:{
-        value: "bulgur",
-        image:placeholder,},
-      item2: {
-        value:"chicken tenders",
-        image:placeholder},
-        item3: {
-          value:"banana",
-          image:placeholder},
+          value:"jasmine rice",
+          image:rice},
           item4: {
             value:"flour",
-            image:placeholder}
+            image:flour}
       
     },
     {
-      question: "I am a super big jumper Question 3",
+      question: "Which vegetables do you have?",
       item1:{
-        value: "sugar",
+        value: "tomatoes",
         image:placeholder,},
       item2: {
-        value:"chocolate",
-        image:placeholder},
+        value:"paprika",
+        image:paprika},
         item3: {
-          value:"cocoa",
-          image:placeholder},
+          value:"peas",
+          image:peas},
           item4: {
-            value:"coffe",
-            image:placeholder}
+            value:"pumpkin",
+            image:abobora}
+      
+    },
+    {
+      question: "Which dairy products do you have?",
+      item1:{
+        value: "swiss cheese",
+        image:cheese,},
+      item2: {
+        value:" low fat milk",
+        image:milk},
+        item3: {
+          value:"free range egg",
+          image:eggs},
+          item4: {
+            value:"light butter",
+            image:butter}
+    },
+    {
+      question: "Which dairy products do you have?",
+      item1:{
+        value: "red chili",
+        image:chili,},
+      item2: {
+        value:"garlic",
+        image:garlic},
+        item3: {
+          value:"ginger",
+          image:ginger},
+          item4: {
+            value:"red onion",
+            image:onions}
+    },
+    {
+      question: "Which dairy products do you have?",
+      item1:{
+        value: "whole chicken",
+        image:chicken,},
+      item2: {
+        value:"lean pork tenderloin",
+        image:pork},
+        item3: {
+          value:"beef",
+          image:beef},
+          item4: {
+            value:"salmon fillet",
+            image:salmon}
     }
+    
   ];
   export default buzzQuestions
