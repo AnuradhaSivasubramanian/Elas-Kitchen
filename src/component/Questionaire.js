@@ -3,36 +3,33 @@ import axios from "axios";
 import config from "../config";
 import Recipe from "./Recipe";
 import Question from "./Question";
-import buzzQuestions from "./buzzQuestions"
-import IngredientsList from "./IngredientsList"
-import Buttons from "./Buttons"
-import "./css/Game.css"
-import "./css/IngredientList.css"
-const MY_KEY = config.SPOON_API_KEY;
+import buzzQuestions from "./buzzQuestions";
 
+import Buttons from "./Buttons";
+import "./css/Game.css";
+import "./css/IngredientList.css";
+const MY_KEY = config.SPOON_API_KEY;
 
 class Questionaire extends Component {
   state = {
     recipes: {},
-    recipeMount:false,
+    recipeMount: false,
     ingredients: [],
     mountQuestion: false,
-    counter: 0,
-   
+    counter: 0
   };
 
-
-  
   AddingList = () => {
     this.setState({
       mountQuestion: !this.state.mountQuestion
     });
+    if (buzzQuestions.length - 1 !== this.state.counter)
+      setTimeout(this.nextQuestion, 0);
   };
   nextQuestion = () => {
     this.setState({
       mountQuestion: !this.state.mountQuestion,
       counter: this.state.counter + 1
-
     });
   };
   handlerdata = () => {
@@ -43,7 +40,7 @@ class Questionaire extends Component {
       )
       .then(res => {
         this.setState({ recipes: res.data.recipes[0] });
-        this.setState({recipeMount:!this.state.recipeMount})
+        this.setState({ recipeMount: !this.state.recipeMount });
       })
       .catch(error => console.error(`Something went wrong ${error}`));
     this.setState({
@@ -65,40 +62,38 @@ class Questionaire extends Component {
   render() {
     return (
       <div>
-        
-        {this.state.recipeMount?
-        <Recipe recipes={this.state.recipes} />:
-      <main className="game-main">
-        
-        {this.state.mountQuestion?
-      <Buttons  
-      nextQuestion={this.nextQuestion} 
-      handlerdata={this.handlerdata}
-      counter={this.state.counter}/>:
-      null}
-      
-      <div>
-         {!this.state.mountQuestion
-          ? buzzQuestions.map((item, index) => (
-              <section  className="justify-center" key={index}>
-                {index === this.state.counter ? (
-                  <Question
-                    object={item}
-                     AddingList={this.AddingList}
-                     mountQuestion={this.state.mountQuestion}
-                     handlervalue={this.handlervalue}
-                     ingredients={this.state.ingredients}
-                     on={this.state.on}
+        {this.state.recipeMount ? (
+          <Recipe recipes={this.state.recipes} />
+        ) : (
+          <main className="game-main">
+            {this.state.mountQuestion ? (
+              <Buttons
+                nextQuestion={this.nextQuestion}
+                handlerdata={this.handlerdata}
+                counter={this.state.counter}
+              />
+            ) : null}
 
-                  />
-                ) : null}
-              </section>
-            ))
-          : null}
-
-          </div>
-
-      </main>}
+            <div>
+              {!this.state.mountQuestion
+                ? buzzQuestions.map((item, index) => (
+                    <section className="justify-center" key={index}>
+                      {index === this.state.counter ? (
+                        <Question
+                          object={item}
+                          AddingList={this.AddingList}
+                          mountQuestion={this.state.mountQuestion}
+                          handlervalue={this.handlervalue}
+                          ingredients={this.state.ingredients}
+                          on={this.state.on}
+                        />
+                      ) : null}
+                    </section>
+                  ))
+                : null}
+            </div>
+          </main>
+        )}
       </div>
     );
   }
