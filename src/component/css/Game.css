@@ -15,3 +15,10 @@ body {
     cursor: pointer;
 }
 
+@media screen and (orientation:portrait){
+  .game-main{
+    height:100%;
+    display: flex;
+    align-items: center;
+  }
+}

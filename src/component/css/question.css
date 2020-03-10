@@ -11,7 +11,15 @@
     flex-wrap: wrap;
     width: 40%;
     height:65%;
+  
   }
+  
+@media screen and (orientation:portrait){
+  .question_square{
+    height:100%;
+    width:60%;
+  }
+}
   
   @media screen and (min-width: 1000px)  {
       

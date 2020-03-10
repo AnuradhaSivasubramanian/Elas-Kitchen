@@ -1,18 +1,24 @@
 .list-ingredient{
     width:35%;
-    margin-top:2%;
+    margin-top:5%;
+    display: flex;
+    flex-wrap: wrap;
 }
-
+.listing-elements{
+  overflow-y: auto;
+  max-height:80%;
+}
 .listing-elements ul
-{font-size:1em;
+{font-size:1.5em;
   font-family: 'Caveat', cursive;
   text-justify: newspaper;
+
 
    
 }
 
 @media screen and (min-width:1000px){
     .listing-elements{
-        font-size:2.5em;
+        font-size:5em;
      }
 }
