@@ -18,15 +18,15 @@ class Questionaire extends Component {
     ingredients: [],
     mountQuestion: false,
     counter: 0,
-   
-  };
+   };
 
 
-  
+
   AddingList = () => {
     this.setState({
       mountQuestion: !this.state.mountQuestion
     });
+    this.setState({on:false})
   };
   nextQuestion = () => {
     this.setState({
@@ -51,12 +51,15 @@ class Questionaire extends Component {
     });
   };
 
-  handlervalue = e => {
-    const item = e.target.id;
+  handlervalue = (e,onItem) => {
+    const on= onItem
+    const item = e
     if (this.state.ingredients.includes(item)) {
       this.setState({
         ingredients: this.state.ingredients.filter(i => i !== item)
       });
+ 
+      
     } else {
       this.setState({ ingredients: [...this.state.ingredients, item] });
     }
@@ -88,7 +91,8 @@ class Questionaire extends Component {
                      mountQuestion={this.state.mountQuestion}
                      handlervalue={this.handlervalue}
                      ingredients={this.state.ingredients}
-                     on={this.state.on}
+                   
+                   
 
                   />
                 ) : null}

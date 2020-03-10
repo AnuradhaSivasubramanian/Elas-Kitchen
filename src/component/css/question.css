@@ -45,6 +45,15 @@
     box-shadow: -10px 5px 25px rgba(0, 0, 0, 0.712);
     
   } 
+  .question_square_image_on {
+    width: 46%;
+    height: 40%;
+    margin: 1% 1% 0 1%;
+    border-radius: 10px;
+    box-shadow: -10px 5px 25px rgba(0, 0, 0, 0.712);
+    filter: grayscale(100%)
+  }
+
 
 
 

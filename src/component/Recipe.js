@@ -5,11 +5,14 @@ class Recipe extends React.Component {
     recipeData: {    },
     isLoaded:false
   };
-  componentDidMount() {
+  componentDidMount =()=> {
     
       this.setState({recipeData: this.props.recipes})
-      this.setState({isLoaded:true})
+      if(this.props.recipes === this.state.recipeData){
+        this.setState({isLoaded:true})
+        }
     }  
+   
 
 
   render() {
@@ -23,11 +26,11 @@ class Recipe extends React.Component {
         </figure>
          <h3> Instructions</h3>
         <p>
-        {/*   {this.state.recipeData.analyzedInstructions[0].steps.map(
+         {this.state.recipeData.analyzedInstructions[0].steps.map(
             (item, index) => (
               <p key={index}>{item.step}</p>
             )
-          )} */}
+          )}
         </p>
         <p>This recipe is from - {this.state.recipeData.creditsText}</p>  
         </div>
