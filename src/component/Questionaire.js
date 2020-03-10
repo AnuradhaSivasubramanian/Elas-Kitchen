@@ -83,7 +83,7 @@ render() {
       
       <div className="height_100">
          {!this.state.mountQuestion
-          ? buzzQuestions.map((item, index) => (
+          ? buzzQuestions.map((item, index) => 
               <section  className="justify-center" key={index}>
                 {index === this.state.counter ? 
                   <Question
@@ -94,7 +94,7 @@ render() {
                      ingredients={this.state.ingredients}                             
 
                   /> : null}
-              </section>);)
+              </section>)
           : null}
 
         </div>
