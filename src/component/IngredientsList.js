@@ -7,9 +7,9 @@ function IngredientsList ({ingredients}){
         <div className="listing-elements">
            <ul> {ingredients?
            (
-            ingredients.map(i =>
+            ingredients.map((i,index) =>
                 (
-                    <li>{i}</li>
+                    <li key={index}>{i}</li>
                
                     ))
 
