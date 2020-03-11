@@ -1,25 +1,44 @@
 import React from "react";
 import MissedIngredients from "./MissedIngredients";
 import "./css/recipe.css";
+import Contact from "./Contact"
 import Basket from "./images/shopping-basket.svg";
+import email from "./images/email.svg"
+import logo from "./images/dinner.svg"
+
+
 class Recipe extends React.Component {
   state = {
-    missedIngredMount: false
+    missedIngredMount: false,
+    contactMount:false,
+    mountPopUp:false
   };
 
-  togglermissedIngredients = () => {
-    this.setState({ missedIngredMount: !this.state.missedIngredMount });
+  togglermissedIngredMount = () => {
+    this.setState({ missedIngredMount: !this.state.missedIngredMount});
+  };
+  togglercontactMount = () => {
+    this.setState({ contactMount: !this.state.contactMount});
+  };
+  
+  togglerPopUp = () => {
+    this.setState({ mountPopUp: !this.state.mountPopUp});
   };
 
   render() {
     return (
+    
       <div className="recipe_body">
+          
         {this.state.missedIngredMount ? (
-          <MissedIngredients
-            togglermissedIngredients={this.togglermissedIngredients}
-            missedIngredients={this.props.missedIngredients}
-          />
-        ) : null}
+              <MissedIngredients
+              togglermissedIngredMount={this.togglermissedIngredMount}
+                missedIngredients={this.props.missedIngredients}
+                togglerPopUp={this.togglerPopUp}
+                mountPopUp={this.state.mountPopUp}
+              />
+            ) : null}
+            {this.state.contactMount?<Contact togglercontactMount={this.togglercontactMount}/>:null}
         <div className="wrap-recipe-content">
           <figure className="recipe-image">
             <img src={this.props.recipeImage} alt="recipe" />
@@ -44,19 +63,19 @@ class Recipe extends React.Component {
               <img
                 className="basket_icon"
                 src={Basket}
-                onClick={this.togglermissedIngredients}
+                onClick={this.togglermissedIngredMount}
                 alt="shopping basket"
               />
               <img
                 className="home_icon"
-                src={Basket}
-                onClick={this.togglermissedIngredients}
+                src={logo}
+                onClick={this.props.questionaireMount}
                 alt="shopping basket"
               />
               <img
                 className="contact_icon"
-                src={Basket}
-                onClick={this.togglermissedIngredients}
+                src={email}
+                onClick={this.togglercontactMount}
                 alt="shopping basket"
               />
             </div>
