@@ -1,0 +1,82 @@
+.body-missIngr{
+    width:100%;
+    font-size:1.4em;
+    position: absolute;
+    height: 100%;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(85, 170, 216) 0%, rgb(86, 156, 197) 0.01%, rgb(80, 154, 197) 30.21%, rgb(60, 146, 195) 59.38%, rgb(34, 130, 185) 91.15%);  
+      display:flex;
+justify-content: center;
+align-items:center;
+flex-direction: column;
+font-family: 'Caveat', cursive;
+
+   
+}
+
+.list-missIngr{
+    display:flex;
+    flex-direction: column;
+    width:45%;
+    max-height:50%;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+.input-check:checked +label{
+    text-decoration:line-through;
+}
+.icons-missIngr{
+    display:flex;
+    height:30%;
+    width:45%;
+    justify-content: space-around;
+   align-items: flex-end;
+}
+
+.icons-missIngr img{
+    width:30%;
+    height:50%;
+}
+.icons-missIngr img:hover{
+    transform: rotate(5deg);
+    transition:ease 0.3s
+}
+
+.icons-missIngr button{
+    width:30%;
+    height:30%;
+}
+
+@media screen and (min-width:900px){
+    .list-missIngr{
+        font-size:2em;
+        max-height:70%;
+    }
+    .icons-missIngr img{
+        height:60%;
+    }
+}
+
+@media screen and  (orientation:portrait){
+    .list-missIngr{
+        font-size:1.5em;
+    }
+    .icons-missIngr img{
+        width:50%;
+        height:30%;
+    }
+    
+    .icons-missIngr button{
+        width:50%;
+        height:30%;
+        align-self:center;
+    }
+    .icons-missIngr{
+        height:20%;
+        align-items: center;
+    }
+}
+@media screen and  (orientation:portrait) and (min-width:700px){
+    .list-missIngr{
+        font-size:2.4em;
+    }
+}

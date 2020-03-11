@@ -1,14 +1,19 @@
-import React from 'react'
+import React from "react";
+// import Dinner from "./images/river-plate.svg";
+import "./Button.css";
 
-
-function Buttons ({nextQuestion,handlerdata,counter} ){
-    return(
-        <div>
-        {counter===0||counter===1||counter===2?
-        (<button onClick={nextQuestion}>Next Question</button>):
-        (<button onClick={handlerdata}> Give me the Recipe</button>)}
-        </div>
-    )
+function Buttons({ nextQuestion, handlerdata, counter }) {
+  return (
+    <div className="buttons_class dinner_container ">
+      <div className="effect5">
+        {" "}
+        <button className="cursor-pointer dinner_button" onClick={handlerdata}>
+          {" "}
+          Recipe
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export default Buttons
+export default Buttons;
