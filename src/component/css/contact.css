@@ -41,7 +41,7 @@
   height: 100%;
   border-radius: 100%;
 }
-.icons {
+.icons img {
   width: 5%;
   height: 30%;
   margin-left: 1%;
@@ -53,7 +53,7 @@
 }
 
 .wrap-contact p {
-  margin-top: 5%;
+  margin-top: 10%;
   font-size: 0.5em;
 }
 .wrap-contact p a {
@@ -73,11 +73,11 @@
   .foto {
     width: 40%;
   }
-  .icons {
+  .icons img {
     width: 10%;
   }
   .wrap-contact p {
-    margin-top: 10%;
+    margin-top: 15%;
     font-size: 0.7em;
   }
 }
@@ -93,11 +93,11 @@
   .foto {
     width: 40%;
   }
-  .icons {
+  .icons img {
     width: 10%;
   }
   .wrap-contact p {
-    margin-top: 10%;
+    margin-top: 15%;
     font-size: 0.7em;
   }
 }
@@ -113,11 +113,11 @@
   .foto {
     width: 30%;
   }
-  .icons {
+  .icons img {
     width: 8%;
   }
   .wrap-contact p {
-    margin-top: 10%;
+    margin-top: 15%;
     font-size: 1em;
   }
 }
@@ -133,11 +133,11 @@
   .foto {
     width: 18%;
   }
-  .icons {
+  .icons img {
     width: 8%;
   }
   .wrap-contact p {
-    margin-top: 10%;
+    margin-top: 15%;
     font-size: 1em;
   }
 }

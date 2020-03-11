@@ -18,6 +18,7 @@ function Contact({ togglercontactMount }) {
           <a
             target="_blank"
             className="icons"
+            rel="noopener noreferrer"
             href="https://github.com/lioliveiraz"
           >
             <img src={github} alt="github" />
@@ -25,6 +26,7 @@ function Contact({ togglercontactMount }) {
           <a
             target="_blank"
             className="icons"
+            rel="noopener noreferrer"
             href="https://www.instagram.com/lioliveiraz/"
           >
             <img src={instagram} alt="instagram" />
@@ -32,6 +34,7 @@ function Contact({ togglercontactMount }) {
           <a
             target="_blank"
             className="icons"
+            rel="noopener noreferrer"
             href="https://www.linkedin.com/in/lioliveiraz/"
           >
             <img src={linkedin} alt="linkedin" />
@@ -42,6 +45,7 @@ function Contact({ togglercontactMount }) {
           <a
             target="_blank"
             className="icons"
+            rel="noopener noreferrer"
             href="https://github.com/AnuradhaSivasubramanian"
           >
             <img src={github} alt="github" />
@@ -49,6 +53,7 @@ function Contact({ togglercontactMount }) {
           <a
             target="_blank"
             className="icons"
+            rel="noopener noreferrer"
             href="https://www.instagram.com/anu.sivasubramanian/"
           >
             <img src={instagram} alt="instagram" />
@@ -56,6 +61,7 @@ function Contact({ togglercontactMount }) {
           <a
             target="_blank"
             className="icons"
+            rel="noopener noreferrer"
             href="https://www.linkedin.com/in/anuradha-sivasubramanian/"
           >
             <img src={linkedin} alt="linkedin" />
@@ -65,12 +71,20 @@ function Contact({ togglercontactMount }) {
         <p>
           {" "}
           This app was made with resource from{" "}
-          <a target="_blank" href="https://www.flaticon.com/">
+          <a
+            target="_blank"
+            href="https://www.flaticon.com/"
+            rel="noopener noreferrer"
+          >
             {" "}
             Flaticon{" "}
           </a>
           and{" "}
-          <a target="_blank" href="https://spoonacular.com/food-api">
+          <a
+            target="_blank"
+            href="https://spoonacular.com/food-api"
+            rel="noopener noreferrer"
+          >
             Spoonacular API{" "}
           </a>
         </p>
