@@ -12,7 +12,7 @@ const MY_KEY = config.SPOON_API_KEY;
 
 class Questionaire extends Component {
   state = {
-    data: {},
+    missedIngredients: [],
     id: "",
     recipes: [],
     recipeMount: false,
@@ -54,7 +54,7 @@ class Questionaire extends Component {
           recipeMount: !this.state.recipeMount,
           recipeImage: res.data[0].image
         });
-
+        this.setState({ missedIngredients: res.data[0].missedIngredients });
         this.getRecipeInfo(this.state.id);
       })
       .catch(error => console.error(`Something went wrong ${error}`));
@@ -98,7 +98,7 @@ class Questionaire extends Component {
       <div>
         {this.state.recipeMount ? (
           <Recipe
-            data={this.state.data}
+            missedIngredients={this.state.missedIngredients}
             recipeImage={this.state.recipeImage}
             recipeLink={this.state.recipeLink}
             recipeTitle={this.state.recipeTitle}

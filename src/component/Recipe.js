@@ -20,14 +20,20 @@ class Recipe extends React.Component {
 
           <div className="recipe-instructions">
             <h3>{this.props.recipeTitle}</h3>
-
+            {/*          <button onClick={this.handlremissedIngredients}> open </button>
+             */}{" "}
+            {this.state.missedIngredMount ? (
+              <MissedIngredients
+                missedIngredients={this.props.missedIngredients}
+              />
+            ) : null}
             <a href={this.props.recipeLink}>{this.props.recipeLink}</a>
             {this.props.recipeCreditText ? (
               <p>This recipe is from - {this.props.recipeCreditText}</p>
             ) : null}
           </div>
         </div>
-        <MissedIngredients recipeData={this.props.data} />
+        {/* <MissedIngredients recipeData={this.props.data} /> */}
         {/*  <button onclick={this.handlremissedIngredients}> open </button>
        {this.state.missedIngredMount? <MissedIngredients recipeData={this.props.data}/>: null}
         */}

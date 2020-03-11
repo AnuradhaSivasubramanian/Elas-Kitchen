@@ -1,18 +1,17 @@
 import React from "react";
+// import Dinner from "./images/river-plate.svg";
+import "./Button.css";
 
 function Buttons({ nextQuestion, handlerdata, counter }) {
   return (
-    <div className="buttons_class">
-      {/* {counter === 2? (
-        <button className="cursor-pointer" onClick={handlerdata}> Give me the Recipe</button>
-        
-      ) : (
-        <button onClick={nextQuestion}>next question</button>
-      )} */}
-      <button className="cursor-pointer" onClick={handlerdata}>
+    <div className="buttons_class dinner_container ">
+      <div className="effect5">
         {" "}
-        Give me the Recipe
-      </button>
+        <button className="cursor-pointer dinner_button" onClick={handlerdata}>
+          {" "}
+          Recipe
+        </button>
+      </div>
     </div>
   );
 }

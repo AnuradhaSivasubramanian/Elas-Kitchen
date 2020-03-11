@@ -1,22 +1,25 @@
 import React from 'react'
+import buy from "./images/buy.svg"
+import "./css/missedIngredients.css"
 
-
-function MissedIngredients({recipeData}){
+function MissedIngredients({missedIngredients}){
 
     return(
-<div>
-<div >
 
-    
-       {recipeData.map(
+<div className="body-missIngr">
+
+    <section className="list-missIngr">
+       {missedIngredients.map(
             (item, index) => (
-              <p key={index}>{item.name}</p>
+              <label  key={index} htmlFor={item.name}>{item.name}
+              <input type="checkbox" />
+              </label>
             )
           )} 
-
-
-
-        </div> 
+</section>
+<img src={buy} alt="buy"/>
+<button>Close</button>
+         
 </div>
     )
 }
