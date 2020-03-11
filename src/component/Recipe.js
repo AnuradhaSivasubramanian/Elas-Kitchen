@@ -2,6 +2,7 @@ import React from "react";
 import MissedIngredients from "./MissedIngredients";
 import "./css/recipe.css";
 import Contact from "./Contact"
+import Basket from "./images/shopping-basket.svg";
 class Recipe extends React.Component {
   state = {
     missedIngredMount: false,
@@ -35,17 +36,41 @@ class Recipe extends React.Component {
 
           <div className="recipe-instructions">
             <h3>{this.props.recipeTitle}</h3>
-
-              <button onClick={this.togglermissedIngredMount}> open </button>
-            
-            
-            <a href={this.props.recipeLink}>{this.props.recipeLink}</a>
+            <a className="link_recipe" href={this.props.recipeLink}>
+              Click here for the recipe
+            </a>
             {this.props.recipeCreditText ? (
-              <p>This recipe is from - {this.props.recipeCreditText}</p>
+              <p>
+                This recipe is from -{" "}
+                <span className="credit_text">
+                  {this.props.recipeCreditText}
+                </span>
+              </p>
             ) : null}
+
+            <div className="icons_container">
+              {" "}
+              <img
+                className="basket_icon"
+                src={Basket}
+                onClick={this.togglermissedIngredients}
+                alt="shopping basket"
+              />
+              <img
+                className="home_icon"
+                src={Basket}
+                onClick={this.togglermissedIngredients}
+                alt="shopping basket"
+              />
+              <img
+                className="contact_icon"
+                src={Basket}
+                onClick={this.togglermissedIngredients}
+                alt="shopping basket"
+              />
+            </div>
           </div>
         </div>
-       
       </div>
     );
   }
