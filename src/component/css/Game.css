@@ -1,0 +1,37 @@
+body {
+  font-family: "Roboto Mono", monospace;
+}
+.game-main {
+  background: url("../images/gameBackground.jpg") center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display:flex;
+  align-content: center;
+  position: fixed;
+  bottom:0%;
+
+}
+.height_100{
+  height:100%;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+#logo{
+  align-self: flex-end;
+  width:5vw;
+  height:10vh;
+position: absolute;
+left:90%;
+bottom:5%;
+cursor: pointer;
+}
+
+@media screen and (orientation:portrait){
+  .game-main{
+    height:100%;
+    display: flex;
+    align-items: center;
+  }
+}
