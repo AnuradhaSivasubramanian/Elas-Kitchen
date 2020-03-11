@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import IngredientsList from "./IngredientsList";
 import "./css/question.css";
 
+
+
 class Question extends Component {
   state = {
     onItem1: false,
@@ -78,6 +80,7 @@ class Question extends Component {
         <div className="list-ingredient">
           <IngredientsList ingredients={this.props.ingredients} />
         </div>
+
       </div>
     );
   }

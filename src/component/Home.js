@@ -8,14 +8,13 @@ class Home extends Component {
   };
   questionaireMount = () => {
     this.setState({
-      questionaireunMount: false
-    });
+      questionaireunMount: !this.state.questionaireunMount });
   };
   render() {
     return (
       <div>
         {!this.state.questionaireunMount ? (
-          <Questionaire />
+          <Questionaire  questionaireMount={this.questionaireMount}/>
         ) : (
           <section className="home_section">
             <h1 className="home_h1"> Ela's Kitchen</h1>

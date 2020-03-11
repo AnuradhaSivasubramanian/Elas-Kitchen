@@ -18,6 +18,15 @@ body {
 .cursor-pointer{
     cursor: pointer;
 }
+#logo{
+  align-self: flex-end;
+  width:5vw;
+  height:10vh;
+position: absolute;
+left:90%;
+bottom:5%;
+cursor: pointer;
+}
 
 @media screen and (orientation:portrait){
   .game-main{

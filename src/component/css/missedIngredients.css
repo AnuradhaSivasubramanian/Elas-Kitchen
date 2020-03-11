@@ -19,6 +19,7 @@ font-family: 'Caveat', cursive;
     width:45%;
     max-height:50%;
     overflow-y: auto;
+    overflow-x:hidden;
 }
 .input-check:checked +label{
     text-decoration:line-through;

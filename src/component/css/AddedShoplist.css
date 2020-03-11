@@ -1,0 +1,40 @@
+.body-addingshopList{
+   font-size:80%;
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width:100%;
+    height:100%;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(85, 170, 216) 0%, rgb(86, 156, 197) 0.01%, rgb(80, 154, 197) 30.21%, rgb(60, 146, 195) 59.38%, rgb(34, 130, 185) 91.15%);  
+}
+.body-addingshopList div{
+    margin-top:5%;
+    width:60%;
+    height:40%;
+}
+.body-addingshopList button{
+    width:25%;
+    height: 20%;
+    align-self:flex-end;
+}
+@media screen and ( orientation:portrait){
+    .body-addingshopList{
+    justify-content:center;
+    }
+}
+
+@media screen and (min-width:700px)  and ( orientation:portrait){
+    .body-addingshopList{
+        justify-content:flex-start;
+        }
+    .body-addingshopList div{
+        margin-top:15%;
+        width:80%;
+       
+    }
+    .body-addingshopList h1{
+        font-size:5em;
+        }
+}

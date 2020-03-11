@@ -4,10 +4,10 @@ import config from "../config";
 import Recipe from "./Recipe";
 import Question from "./Question";
 import buzzQuestions from "./buzzQuestions";
-
 import Buttons from "./Buttons";
 import "./css/Game.css";
 import "./css/IngredientList.css";
+import logo from "./images/dinner.svg"
 const MY_KEY = config.SPOON_API_KEY;
 
 class Questionaire extends Component {
@@ -130,7 +130,10 @@ class Questionaire extends Component {
                     </section>
                   ))
                 : null}
+
             </div>
+            <img src={logo} alt="logo" id="logo" onClick={this.props.questionaireMount}/>
+
           </main>
         )}
       </div>
