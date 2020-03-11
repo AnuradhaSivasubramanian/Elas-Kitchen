@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
-import config from "../config";
+
 import Recipe from "./Recipe";
 import Question from "./Question";
 import buzzQuestions from "./buzzQuestions";
 import Buttons from "./Buttons";
 import "./css/Game.css";
 import "./css/IngredientList.css";
-import logo from "./images/dinner.svg"
-const MY_KEY = config.SPOON_API_KEY;
+import logo from "./images/dinner.svg";
+const MY_KEY = process.env.REACT_APP_API_KEY;
 
 class Questionaire extends Component {
   state = {
@@ -131,10 +131,13 @@ class Questionaire extends Component {
                     </section>
                   ))
                 : null}
-
             </div>
-            <img src={logo} alt="logo" id="logo" onClick={this.props.questionaireMount}/>
-
+            <img
+              src={logo}
+              alt="logo"
+              id="logo"
+              onClick={this.props.questionaireMount}
+            />
           </main>
         )}
       </div>
