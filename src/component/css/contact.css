@@ -53,7 +53,7 @@
 }
 
 .wrap-contact p {
-  margin-top: 10%;
+  margin-top: 6%;
   font-size: 0.5em;
 }
 .wrap-contact p a {
@@ -75,9 +75,10 @@
   }
   .icons img {
     width: 10%;
+    cursor:pointer;
   }
   .wrap-contact p {
-    margin-top: 15%;
+    margin-top: 10%;
     font-size: 0.7em;
   }
 }
@@ -97,7 +98,7 @@
     width: 10%;
   }
   .wrap-contact p {
-    margin-top: 15%;
+    margin-top: 10%;
     font-size: 0.7em;
   }
 }
@@ -117,7 +118,7 @@
     width: 8%;
   }
   .wrap-contact p {
-    margin-top: 15%;
+    margin-top: 10%;
     font-size: 1em;
   }
 }
@@ -137,7 +138,7 @@
     width: 8%;
   }
   .wrap-contact p {
-    margin-top: 15%;
+    margin-top: 10%;
     font-size: 1em;
   }
 }
