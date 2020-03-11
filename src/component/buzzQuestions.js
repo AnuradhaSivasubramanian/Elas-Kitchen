@@ -82,7 +82,7 @@ const buzzQuestions = [
             image:onions}
     },
     {
-      question: "Which meets do you have?",
+      question: "Which meat do you have?",
       item1:{
         value: "whole chicken",
         image:chicken,},
