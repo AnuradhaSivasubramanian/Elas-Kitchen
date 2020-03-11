@@ -12,7 +12,7 @@ const MY_KEY = config.SPOON_API_KEY;
 
 class Questionaire extends Component {
   state = {
-    data:{},
+    missedIngredients:[],
     id: "",
     recipes: [],
     recipeMount: false,
@@ -43,7 +43,7 @@ class Questionaire extends Component {
         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${MY_KEY}&ingredients=${ingredients}&number=1`
       )
       .then(res => {
-        this.setState({data:res.data[0].missedIngredients})
+        this.setState({missedIngredients:res.data[0].missedIngredients})
         this.setState({ id: res.data[0].id});
         this.setState({ recipeMount: !this.state.recipeMount });
         this.setState({ recipeImage: res.data[0].image });
@@ -83,7 +83,7 @@ class Questionaire extends Component {
       <div>
         {this.state.recipeMount ? (
           <Recipe
-          data={this.state.data}
+          missedIngredients={this.state.missedIngredients}
             recipes={this.state.recipes}
             recipeImage={this.state.recipeImage}
           />

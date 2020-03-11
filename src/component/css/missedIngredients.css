@@ -1,0 +1,15 @@
+.body-missIngr{
+    width:100%;
+    position: absolute;
+    height: 100%;
+    background:black;
+    color:white;
+}
+
+.list-missIngr{
+
+}
+img{
+    width:100px;
+    height:100px;
+}

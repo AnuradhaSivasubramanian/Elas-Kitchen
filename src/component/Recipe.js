@@ -13,8 +13,11 @@ class Recipe extends React.Component {
   render() {
     return (
       <div className="recipe_body">
-
-       <div className="wrap-recipe-content">
+        
+{/*          <button onClick={this.handlremissedIngredients}> open </button>
+ */}       {!this.state.missedIngredMount? <MissedIngredients missedIngredients={this.props.missedIngredients}/>: null}
+        
+      <div className="wrap-recipe-content">
         
         
         <figure className="recipe-image">
@@ -34,13 +37,13 @@ class Recipe extends React.Component {
         </div>
 
         </div> 
-        <MissedIngredients recipeData={this.props.data}/>
-       {/*  <button onclick={this.handlremissedIngredients}> open </button>
-       {this.state.missedIngredMount? <MissedIngredients recipeData={this.props.data}/>: null}
-        */}
-       {/*   <div className="display-none">
+       
+      
+       
+      {/* 
+         <div className="display-none">
         <p>This recipe is from - {this.state.recipeData.creditsText}</p>
-         </div>   */}
+         </div>    */}
            
       </div>
     );
