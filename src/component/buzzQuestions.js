@@ -67,7 +67,7 @@ const buzzQuestions = [
             image:butter}
     },
     {
-      question: "Which dairy products do you have?",
+      question: "Which condiments do you have?",
       item1:{
         value: "red chili",
         image:chili,},
@@ -82,7 +82,7 @@ const buzzQuestions = [
             image:onions}
     },
     {
-      question: "Which dairy products do you have?",
+      question: "Which meets do you have?",
       item1:{
         value: "whole chicken",
         image:chicken,},
