@@ -6,16 +6,15 @@ class Recipe extends React.Component {
     missedIngredMount:false
   };
 
-  handlremissedIngredients=()=>{
-    this.setState({missedIngredMount:true})
+  togglermissedIngredients=()=>{
+    this.setState({missedIngredMount:!this.state.missedIngredMount})
   }
 
   render() {
     return (
       <div className="recipe_body">
-        
-{/*          <button onClick={this.handlremissedIngredients}> open </button>
- */}       {!this.state.missedIngredMount? <MissedIngredients missedIngredients={this.props.missedIngredients}/>: null}
+                 <button onClick={this.togglermissedIngredients}> open </button>
+       {this.state.missedIngredMount? <MissedIngredients togglermissedIngredients={this.togglermissedIngredients} missedIngredients={this.props.missedIngredients}/>: null}
         
       <div className="wrap-recipe-content">
         
