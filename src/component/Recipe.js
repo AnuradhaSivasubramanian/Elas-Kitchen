@@ -6,17 +6,35 @@ class Recipe extends React.Component {
     missedIngredMount: false
   };
 
+<<<<<<< HEAD
   handlremissedIngredients = () => {
     this.setState({ missedIngredMount: true });
   };
+=======
+  togglermissedIngredients=()=>{
+    this.setState({missedIngredMount:!this.state.missedIngredMount})
+  }
+>>>>>>> a8efbfde93704a6b952d270e3c60d3544ed885eb
 
   render() {
     return (
       <div className="recipe_body">
+<<<<<<< HEAD
         <div className="wrap-recipe-content">
           <figure className="recipe-image">
             <img src={this.props.recipeImage} alt="recipe" />
           </figure>
+=======
+                 <button onClick={this.togglermissedIngredients}> open </button>
+       {this.state.missedIngredMount? <MissedIngredients togglermissedIngredients={this.togglermissedIngredients} missedIngredients={this.props.missedIngredients}/>: null}
+        
+      <div className="wrap-recipe-content">
+        
+        
+        <figure className="recipe-image">
+          <img src={this.props.recipeImage} alt="recipe"/>
+                  </figure>
+>>>>>>> a8efbfde93704a6b952d270e3c60d3544ed885eb
 
           <div className="recipe-instructions">
             <h3>{this.props.recipeTitle}</h3>

@@ -2,7 +2,7 @@ import React from 'react'
 import buy from "./images/buy.svg"
 import "./css/missedIngredients.css"
 
-function MissedIngredients({missedIngredients}){
+function MissedIngredients({missedIngredients,togglermissedIngredients}){
 
     return(
 
@@ -11,15 +11,19 @@ function MissedIngredients({missedIngredients}){
     <section className="list-missIngr">
        {missedIngredients.map(
             (item, index) => (
-              <label  key={index} htmlFor={item.name}>{item.name}
-              <input type="checkbox" />
+            <div key={index}>
+              <input  name={item.name} type="checkbox" className="input-check"/>
+              <label  name={item.name} htmlFor={item.name}>
+              {item.name}
               </label>
+              </div>
             )
           )} 
 </section>
+<div className="icons-missIngr">
 <img src={buy} alt="buy"/>
-<button>Close</button>
-         
+<button onClick={togglermissedIngredients}>Close</button>
+    </div>     
 </div>
     )
 }
