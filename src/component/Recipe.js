@@ -1,47 +1,36 @@
 import React from "react";
-import MissedIngredients from "./MissedIngredients"
-import "./css/recipe.css"
+import MissedIngredients from "./MissedIngredients";
+import "./css/recipe.css";
 class Recipe extends React.Component {
   state = {
-    missedIngredMount:false
+    missedIngredMount: false
   };
 
-  handlremissedIngredients=()=>{
-    this.setState({missedIngredMount:true})
-  }
+  handlremissedIngredients = () => {
+    this.setState({ missedIngredMount: true });
+  };
 
   render() {
     return (
       <div className="recipe_body">
+        <div className="wrap-recipe-content">
+          <figure className="recipe-image">
+            <img src={this.props.recipeImage} alt="recipe" />
+          </figure>
 
-       <div className="wrap-recipe-content">
-        
-        
-        <figure className="recipe-image">
-          <img src={this.props.recipeImage} alt="recipe"/>
-                  </figure>
+          <div className="recipe-instructions">
+            <h3>{this.props.recipeTitle}</h3>
 
-        <div className="recipe-instructions">
-        <h3> Instructions</h3>
-        
-         <div >
-         {this.props.recipes.map(
-            (item, index) => (
-              <p key={index}>{item.step}</p>
-            )
-          )}
-        </div> 
+            <a href={this.props.recipeLink}>{this.props.recipeLink}</a>
+            {this.props.recipeCreditText ? (
+              <p>This recipe is from - {this.props.recipeCreditText}</p>
+            ) : null}
+          </div>
         </div>
-
-        </div> 
-        <MissedIngredients recipeData={this.props.data}/>
-       {/*  <button onclick={this.handlremissedIngredients}> open </button>
+        <MissedIngredients recipeData={this.props.data} />
+        {/*  <button onclick={this.handlremissedIngredients}> open </button>
        {this.state.missedIngredMount? <MissedIngredients recipeData={this.props.data}/>: null}
         */}
-       {/*   <div className="display-none">
-        <p>This recipe is from - {this.state.recipeData.creditsText}</p>
-         </div>   */}
-           
       </div>
     );
   }

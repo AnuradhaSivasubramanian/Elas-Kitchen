@@ -12,14 +12,17 @@ const MY_KEY = config.SPOON_API_KEY;
 
 class Questionaire extends Component {
   state = {
-    data:{},
+    data: {},
     id: "",
     recipes: [],
     recipeMount: false,
     ingredients: [],
     mountQuestion: false,
     counter: 0,
-    recipeImage: ""
+    recipeImage: "",
+    recipeTitle: "",
+    recipeLink: "",
+    recipeCreditText: ""
   };
 
   AddingList = () => {
@@ -43,11 +46,16 @@ class Questionaire extends Component {
         `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${MY_KEY}&ingredients=${ingredients}&number=1`
       )
       .then(res => {
-        this.setState({data:res.data[0].missedIngredients})
-        this.setState({ id: res.data[0].id});
-        this.setState({ recipeMount: !this.state.recipeMount });
-        this.setState({ recipeImage: res.data[0].image });
-        this.getAnalizedInst(this.state.id);
+        console.log(res.data[0]);
+        this.setState({
+          data: res.data[0].missedIngredients,
+          id: res.data[0].id,
+          recipeTitle: res.data[0].title,
+          recipeMount: !this.state.recipeMount,
+          recipeImage: res.data[0].image
+        });
+
+        this.getRecipeInfo(this.state.id);
       })
       .catch(error => console.error(`Something went wrong ${error}`));
     this.setState({
@@ -55,19 +63,26 @@ class Questionaire extends Component {
     });
   };
 
-  getAnalizedInst = id => {
+  getRecipeInfo = id => {
     axios
       .get(
-        `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${MY_KEY}`
+        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${MY_KEY}`
       )
       .then(res => {
-        this.setState({ recipes: res.data[0].steps});
+        console.log(res.data.sourceUrl);
+        console.log(res.data.creditsText);
+        console.log(res.data.extendedIngredients);
+        this.setState({
+          recipes: res.data.extendedIngredients,
+          recipeLink: res.data.sourceUrl,
+          recipeCreditText: res.data.creditsText
+        });
+        console.log(res.data);
       })
       .catch(error => console.error(`Something went wrong ${error}`));
   };
 
   handlervalue = (e, onItem) => {
-    const on = onItem;
     const item = e;
     if (this.state.ingredients.includes(item)) {
       this.setState({
@@ -83,9 +98,11 @@ class Questionaire extends Component {
       <div>
         {this.state.recipeMount ? (
           <Recipe
-          data={this.state.data}
-            recipes={this.state.recipes}
+            data={this.state.data}
             recipeImage={this.state.recipeImage}
+            recipeLink={this.state.recipeLink}
+            recipeTitle={this.state.recipeTitle}
+            recipeCreditText={this.state.recipeCreditText}
           />
         ) : (
           <main className="game-main">
