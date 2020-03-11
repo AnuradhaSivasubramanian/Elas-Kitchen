@@ -20,8 +20,7 @@ class Home extends Component {
             <h1 className="home_h1"> Ela's Kitchen</h1>
             <div className="home_pbutton_container">
               <p className="home_p">
-                Excepteur sint occaecat cupidatat non roident. occaecat pidatat
-                non proident.
+                Ela's Kitchen will find you a recipe based on what you have in your pantry.
               </p>
               <button className="home_button" onClick={this.questionaireMount}>
                 Start Here

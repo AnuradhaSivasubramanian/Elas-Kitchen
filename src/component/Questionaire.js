@@ -103,6 +103,7 @@ class Questionaire extends Component {
             recipeLink={this.state.recipeLink}
             recipeTitle={this.state.recipeTitle}
             recipeCreditText={this.state.recipeCreditText}
+            questionaireMount={this.props.questionaireMount}
           />
         ) : (
           <main className="game-main">
